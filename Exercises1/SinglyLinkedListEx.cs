@@ -4,14 +4,16 @@ using System.Text;
 
 namespace Exercises1
 {
-    public class Node
-    {
-        public Object data;
-        public Node next;
-    }
+    
 
     public class SinglyLinkedList
     {
+        private class Node
+        {
+            public Object data;
+            public Node next;
+        }
+
         private Node head;
         public int length = 0;
 
@@ -104,10 +106,5 @@ namespace Exercises1
             current.next = addNode;
             length++;
         }
-    }
-    
-    public class LinkedListEx
-    {
-
     }
 }
