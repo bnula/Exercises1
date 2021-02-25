@@ -85,8 +85,11 @@ namespace Exercises1
 
         public void AddFirst(object data)
         {
-            Node addNode = new Node();
-            addNode.data = data;
+            Node addNode = new Node
+            {
+                data = data
+            };
+
             addNode.next = head;
 
             head = addNode;
