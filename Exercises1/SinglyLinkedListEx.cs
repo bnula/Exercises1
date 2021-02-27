@@ -17,6 +17,24 @@ namespace Exercises1
         private Node head;
         public int length = 0;
 
+        public void Reverse()
+        {
+            Node first = head;
+            Node second = head.next;
+            Node tail = head;
+            tail.next = null;
+
+            while (second != null)
+            {
+                var temp = second.next;
+                second.next = first;
+                first = second;
+                second = temp;
+            }
+            head = first;
+            
+        }
+
         public void PrintAllNodes()
         {
             Node current = head;

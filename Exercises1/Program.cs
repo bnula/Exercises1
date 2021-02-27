@@ -14,16 +14,14 @@ namespace Exercises1
             var a = new DoublyLinkedList();
 
             a.AddFirst(1);
-            a.AddFirst("first");
-            a.AddLast("last");
-            a.PrintAll();
+            a.AddLast(2);
+            a.AddLast(3);
+            a.AddLast(4);
+            a.AddLast(5);
+            a.PrintAllNodes();
             Console.WriteLine("=====");
-            a.AddAtIndex("index", 2);
-            a.PrintAll();
-            Console.WriteLine("=====");
-            a.FindAtIndex(1);
-            a.RemoveAtIndex(1);
-            a.FindAtIndex(1);
+            a.Reverse();
+            a.PrintAllNodes();
         }
 
     }

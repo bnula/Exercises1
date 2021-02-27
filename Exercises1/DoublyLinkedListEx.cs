@@ -16,7 +16,24 @@ namespace Exercises1
         private Node head;
         private int length = 0;
 
-        public void PrintAll()
+        public void Reverse()
+        {
+            Node current = head;
+            Node tail = head;
+
+            while (current.next != null)
+            {
+                var temp = current.next;
+                current.next = current.previous;
+                current.previous = temp;
+                current = temp;
+            }
+            head = current;
+            head.next = head.previous;
+            head.previous = null;
+        }
+
+        public void PrintAllNodes()
         {
             Node current = head;
 
@@ -55,7 +72,7 @@ namespace Exercises1
             Console.WriteLine(current.data);
         }
 
-        public void AddAtIndex(object data, int index)
+        public void InsertAt(object data, int index)
         {
             if (index == 0)
             {
