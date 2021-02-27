@@ -12,14 +12,13 @@ namespace Exercises1
         static void Main(string[] args)
         {
             var a = new QueueEx();
-
-            a.Push(1);
-            a.Push(2);
-            a.Push(3);
-            a.Peek();
-            a.Pop();
-            a.Pop();
-            a.Peek();
+            a.Enqueue("test");
+            Console.WriteLine(a.Peek());
+            a.Enqueue(2);
+            a.Enqueue(3);
+            Console.WriteLine(a.Dequeue());
+            Console.WriteLine(a.Dequeue());
+            Console.WriteLine(a.Dequeue());
         }
 
     }

@@ -12,28 +12,57 @@ namespace Exercises1
             internal Node next;
         }
 
-        Node head = new Node();
+        Node first = new Node();
+        Node last = new Node();
+        int length = 0;
 
-        public void Push(object data)
+        public void Enqueue(object data)
         {
             Node addNode = new Node
             {
-                data = data,
-                next = head
+                data = data
             };
 
-            head = addNode;
+            if (length == 0)
+            {
+                first = addNode;
+                last = addNode;
+            }
+            else
+            {
+                last.next = addNode;
+                last = addNode;
+            }
+            length++;
+
         }
 
-        public void Pop()
+        public object Dequeue()
         {
-            Console.WriteLine(head.data);
-            head = head.next;
+            if (first == null)
+            {
+                Console.WriteLine("Empty Queue");
+                return null;
+            }
+            if (first == last)
+            {
+                last = null;
+            }
+            object item = first.data;
+            first = first.next;
+            length--;
+            return item;
         }
 
-        public void Peek()
+        public object Peek()
         {
-            Console.WriteLine(head.data);
+            if (first == null)
+            {
+                Console.WriteLine("Empty Queue");
+                return null;
+            }
+            object item = first.data;
+            return item;
         }
 
     }

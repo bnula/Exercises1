@@ -15,6 +15,11 @@ namespace Exercises1
 
         public object Pop()
         {
+            if (items.Count == 0)
+            {
+                Console.WriteLine("Empty Stack");
+                return null;
+            }
             var item = items[items.Count -1 ];
             items.RemoveAt(items.Count - 1);
             return item;
@@ -22,6 +27,11 @@ namespace Exercises1
 
         public object Peek()
         {
+            if (items.Count == 0)
+            {
+                Console.WriteLine("Empty Stack");
+                return null;
+            }
             var item = items[items.Count - 1];
             return item;
         }
