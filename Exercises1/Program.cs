@@ -11,17 +11,15 @@ namespace Exercises1
     {
         static void Main(string[] args)
         {
-            var a = new DoublyLinkedList();
+            var a = new QueueEx();
 
-            a.AddFirst(1);
-            a.AddLast(2);
-            a.AddLast(3);
-            a.AddLast(4);
-            a.AddLast(5);
-            a.PrintAllNodes();
-            Console.WriteLine("=====");
-            a.Reverse();
-            a.PrintAllNodes();
+            a.Push(1);
+            a.Push(2);
+            a.Push(3);
+            a.Peek();
+            a.Pop();
+            a.Pop();
+            a.Peek();
         }
 
     }
