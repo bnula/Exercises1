@@ -5,50 +5,64 @@ using System.Text;
 
 namespace Exercises1
 {
-
-    public class QueueTest
-    {
-        private List<int> queueList { get; set; }
-
-        public QueueTest()
-        {
-            queueList = new List<int>();
-        }
-
-        public void AddToQueue(int n)
-        {
-            queueList.Add(n);
-        }
-
-        public void RemoveFromQueue(int n)
-        {
-            queueList.Remove(n);
-        }
-
-        public void RemoveAtIndex(int n)
-        {
-            queueList.RemoveAt(n);
-        }
-
-        public void Peek()
-        {
-            var index = queueList.Count()-1;
-            Console.WriteLine(queueList.ElementAt(index));
-            Console.WriteLine(queueList.Last());
-        }
-
-        public void ShowList()
-        {
-            foreach (var item in queueList)
-            {
-                Console.WriteLine(item);
-            }
-        }
-    }
-
-
     public static class Exercises3
     {
+
+        public static string ReverseStringRecursive(string str, string ch = "", string revStr = "")
+        {
+            revStr += ch.ToString();
+            if (str.Length == 0)
+            {
+                Console.WriteLine(revStr);
+                return revStr;
+            }
+            return ReverseStringRecursive(str.Substring(0, str.Length - 1), str[str.Length-1].ToString(), revStr);
+        }
+
+        public static int FibonacciRecursive(int f1, int f2, int counter, int num)
+        {
+            Console.WriteLine(f1);
+            if (counter == num)
+            {
+                return f1 + f2;
+            }
+
+            return FibonacciRecursive(f2, f1 + f2, counter + 1, num);
+        }
+
+        public static void FibonacciIterative(int num)
+        {
+            int f1 = 0;
+            int f2 = 1;
+            Console.WriteLine(f1);
+            Console.WriteLine(f2);
+            for (int i = 1; i <= num; i++)
+            {
+                int sum = f1 + f2;
+                Console.WriteLine(sum);
+                f1 = f2;
+                f2 = sum;
+            }
+        }
+
+        public static int FactorialRecursive(int num)
+        {
+            if (num == 2)
+            {
+                return 2;
+            }
+            return num * FactorialRecursive(num - 1);
+        }
+
+        public static void FactorialIterative(int num)
+        {
+            int fact = num;
+            for (int i = num; i > 2; i--)
+            {
+                fact = fact * (i - 1);
+            }
+            Console.WriteLine(fact);
+        }
 
         public static void PrintAsSpiralMatrix(int[,] arr)
         {
@@ -149,37 +163,6 @@ namespace Exercises1
             foreach (var item in arr)
             {
                 Console.WriteLine(item);
-            }
-        }
-
-        public static void FibonacciRecursive(int n)
-        {
-            static void FibRecTemp(int num1, int num2, int counter, int n)
-            {
-                if (counter <= n)
-                {
-                    Console.WriteLine(num1);
-                    FibRecTemp(num2, num1 + num2, counter + 1, n);
-                }
-            }
-
-            FibRecTemp(0, 1, 1, n);
-
-        }
-
-
-        public static void FibonacciIterative(int n)
-        {
-            int num1 = 0;
-            int num2 = 1;
-            int fib;
-            Console.WriteLine(num1);
-            for (int i = 0; i < n; i++)
-            {
-                fib = num1 + num2;
-                num1 = num2;
-                num2 = fib;
-                Console.WriteLine(fib);
             }
         }
 
@@ -405,7 +388,6 @@ namespace Exercises1
             string reverseString = "";
             for (int i = str.Length - 1; i >= 0; i--)
             {
-                Console.WriteLine(str[i]);
                 reverseString += str[i];
             }
             Console.WriteLine(reverseString);
